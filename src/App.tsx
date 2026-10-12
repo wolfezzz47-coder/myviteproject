@@ -21,12 +21,6 @@ function App() {
                 <Route path={"*"} element={<NotFoundPage/>} />
             </Route>
         </Routes>
-      {/*<h1 className={"text-3xl " +*/}
-      {/*    "font-bold " +*/}
-      {/*    "text-fuchsia-700 " +*/}
-      {/*    "text-center"}>*/}
-      {/*    Hello React Vite Workers*/}
-      {/*</h1>*/}
     </>
   )
 }

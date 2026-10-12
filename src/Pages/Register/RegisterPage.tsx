@@ -9,6 +9,8 @@ const RegisterPage = () => {
     const defaultValues: IRegisterType = {
         email: "",
         password: "",
+        firstName: "",
+        lastName: "",
     };
     // написав трохи коментарів
     // окремий стан для вибраного файлу
@@ -68,6 +70,8 @@ const RegisterPage = () => {
             const formData = new FormData();
             formData.append("email", data.email);
             formData.append("password", data.password);
+            formData.append("firstName", data.firstName);
+            formData.append("lastName", data.lastName);
             if (avatar) {
                 formData.append("avatar", avatar); // ім'я поля має відповідати бекенду
             }
@@ -129,7 +133,35 @@ const RegisterPage = () => {
                             />
                         </label>
                     </div>
-
+                    {/* Ім'я */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                            Ім'я
+                        </label>
+                        <input
+                            type="text"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            {...register("firstName")}
+                        />
+                        {errors.firstName && (
+                            <p className="text-red-500 text-sm">{errors.firstName.message}</p>
+                        )}
+                    </div>
+                    {/* Прізвище */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                            Прізвище
+                        </label>
+                        <input
+                            type="text"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            {...register("lastName")}
+                        />
+                        {errors.lastName && (
+                            <p className="text-red-500 text-sm">{errors.lastName.message}</p>
+                        )}
+                    </div>
+                    {/* Email */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
                             Електронна пошта
@@ -143,7 +175,7 @@ const RegisterPage = () => {
                             <p className="text-red-500 text-sm">{errors.email.message}</p>
                         )}
                     </div>
-
+                    {/* Пароль */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
                             Пароль
